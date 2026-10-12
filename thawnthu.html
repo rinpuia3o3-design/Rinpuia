@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thawnthu - Pasalṭhate Zawlbuk</title>
+
+    <link rel="stylesheet" href="thawnthu.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="category.html" class="back-button">&#8592;</a>
+
+        <h1>Thawnthu</h1>
+
+        <div class="decoration">◇</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Search Bar -->
+        <div class="search-box">
+            <span class="search-icon">&#9906;</span>
+
+            <input
+                type="search"
+                id="storySearch"
+                placeholder="Zawn awlna"
+                aria-label="Zawn awlna"
+            >
+        </div>
+
+        <!-- Sorting Buttons -->
+        <nav class="filter-buttons" aria-label="Story sorting">
+
+            <button class="filter active" data-sort="all">
+                All
+            </button>
+
+            <button class="filter" data-sort="newest">
+                Hlui ber aṭang
+            </button>
+
+            <button class="filter" data-sort="oldest">
+                Thar ber aṭang
+            </button>
+
+        </nav>
+
+        <!-- Story List -->
+        <section class="story-list" id="storyList">
+
+            <a href="remna_pasaltha.html"
+               class="story-card"
+               data-title="Remna Pasalṭha"
+               data-date="1">
+
+                <div class="book-icon">📖</div>
+
+                <div class="story-info">
+                    <h2>Remna Pasalṭha</h2>
+                    <p>A ziaktu: —</p>
+                </div>
+
+                <span class="arrow">&#8250;</span>
+            </a>
+
+            <a href="thawnthu-2.html"
+               class="story-card"
+               data-title="Thawnthu 2"
+               data-date="2">
+
+                <div class="book-icon">📖</div>
+
+                <div class="story-info">
+                    <h2>Thawnthu 2</h2>
+                    <p>A ziaktu: —</p>
+                </div>
+
+                <span class="arrow">&#8250;</span>
+            </a>
+
+            <a href="thawnthu-3.html"
+               class="story-card"
+               data-title="Thawnthu 3"
+               data-date="3">
+
+                <div class="book-icon">📖</div>
+
+                <div class="story-info">
+                    <h2>Thawnthu 3</h2>
+                    <p>A ziaktu: —</p>
+                </div>
+
+                <span class="arrow">&#8250;</span>
+            </a>
+
+            <a href="thawnthu-4.html"
+               class="story-card"
+               data-title="Thawnthu 4"
+               data-date="4">
+
+                <div class="book-icon">📖</div>
+
+                <div class="story-info">
+                    <h2>Thawnthu 4</h2>
+                    <p>A ziaktu: —</p>
+                </div>
+
+                <span class="arrow">&#8250;</span>
+            </a>
+
+        </section>
+
+        <!-- Bottom Decoration -->
+        <div class="footer-decoration">
+            <span></span>
+            <b>◇</b>
+            <span></span>
+        </div>
+
+    </main>
+
+    <!-- Search and Sorting -->
+    <script>
+        const searchInput = document.getElementById("storySearch");
+        const storyList = document.getElementById("storyList");
+        const filters = document.querySelectorAll(".filter");
+
+        const stories = Array.from(
+            storyList.querySelectorAll(".story-card")
+        );
+
+        let currentSort = "all";
+
+        function updateStories() {
+            const searchText = searchInput.value.toLowerCase();
+
+            const filteredStories = stories.filter(story => {
+                return story.dataset.title
+                    .toLowerCase()
+                    .includes(searchText);
+            });
+
+            filteredStories.sort((a, b) => {
+                if (currentSort === "oldest") {
+                    return Number(a.dataset.date) -
+                           Number(b.dataset.date);
+                }
+
+                if (currentSort === "newest") {
+                    return Number(b.dataset.date) -
+                           Number(a.dataset.date);
+                }
+
+                return stories.indexOf(a) - stories.indexOf(b);
+            });
+
+            storyList.replaceChildren(...filteredStories);
+        }
+
+        searchInput.addEventListener("input", updateStories);
+
+        filters.forEach(button => {
+            button.addEventListener("click", () => {
+                filters.forEach(item =>
+                    item.classList.remove("active")
+                );
+
+                button.classList.add("active");
+                currentSort = button.dataset.sort;
+
+                updateStories();
+            });
+        });
+    </script>
+
+</body>
+</html>

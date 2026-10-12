@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #f7f2e7;
+    font-family: Georgia, serif;
+    color: #542817;
+    padding-bottom: 40px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 24px;
+    border-bottom: 2px solid #dfc3a7;
+}
+
+.back-button {
+    color: #a95f35;
+    text-decoration: none;
+    font-size: 36px;
+}
+
+.page-header h1 {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.header-decoration {
+    color: #c99a75;
+    font-size: 30px;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 125px;
+    padding: 0 22px;
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-height: 230px;
+    padding: 25px 22px;
+    background: #fffaf0;
+    border: 2px solid #e1cbb2;
+    border-radius: 24px;
+    box-shadow: 0 8px 20px rgba(100, 60, 30, 0.06);
+    text-decoration: none;
+    color: #542817;
+}
+
+.category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #f8e8d2;
+    font-size: 65px;
+}
+
+.category-content {
+    flex: 1;
+}
+
+.category-content h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.category-content p {
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    line-height: 1.5;
+    color: #75645a;
+}
+
+.arrow {
+    font-family: Arial, sans-serif;
+    font-size: 42px;
+    color: #b66b43;
+}
+
+.footer-decoration {
+    text-align: center;
+    margin-top: 350px;
+    color: #d2a17d;
+    font-size: 30px;
+}
+
+@media (max-width: 400px) {
+    .category-card {
+        gap: 14px;
+        padding: 20px 12px;
+        min-height: 180px;
+    }
+
+    .category-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 42px;
+    }
+
+    .category-content h2 {
+        font-size: 25px;
+    }
+
+    .category-content p {
+        font-size: 15px;
+    }
+
+    .arrow {
+        font-size: 30px;
+    }
+
+    .page-header h1 {
+        font-size: 30px;
+    }
+}
