@@ -148,34 +148,34 @@
             filteredStories.sort((a, b) => {
                 if (currentSort === "oldest") {
                     return Number(a.dataset.date) -
-                           Number(b.dataset.date);
+                           Number(b.dataset.date)
                 }
 
                 if (currentSort === "newest") {
                     return Number(b.dataset.date) -
-                           Number(a.dataset.date);
+                           Number(a.dataset.date)
                 }
 
-                return stories.indexOf(a) - stories.indexOf(b);
-            });
+                return stories.indexOf(a) - stories.indexOf(b)
+            })
 
-            storyList.replaceChildren(...filteredStories);
+            storyList.replaceChildren(...filteredStories)
         }
 
-        searchInput.addEventListener("input", updateStories);
+        searchInput.addEventListener("input", updateStories)
 
         filters.forEach(button => {
             button.addEventListener("click", () => {
                 filters.forEach(item =>
                     item.classList.remove("active")
-                );
+                )
 
-                button.classList.add("active");
-                currentSort = button.dataset.sort;
+                button.classList.add("active")
+                currentSort = button.dataset.sort
 
-                updateStories();
-            });
-        });
+                updateStories()
+            })
+        })
     </script>
 
 </body>
